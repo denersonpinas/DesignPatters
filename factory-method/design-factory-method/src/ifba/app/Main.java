@@ -1,17 +1,21 @@
 package ifba.app;
 
+import ifba.elementos.IDocuments;
+import ifba.elementos.html.HTMLDocuments;
+import ifba.elementos.markdown.MarkdownDocuments;
+
 public class Main {
 
 	private static String configureApplication(TipoDocumento tipo) {
-        CriadorDocumento criador;
-        Product concreteProduct;
+        CriaDocumentos criador;
+        IDocuments concreteProduct;
 
         if (tipo == TipoDocumento.HTML) {
-            concreteProduct = new ConcreteHtml();
+            concreteProduct = new HTMLDocuments();
         } else {
-            concreteProduct = new ConcreteMarkdown();
+            concreteProduct = new MarkdownDocuments();
         }
-        criador = new CriadorDocumento();		
+        criador = new CriaDocumentos();		
         return criador.geraDocumentacao(concreteProduct);
     }
 

@@ -1,12 +1,10 @@
 package ifba.app;
-
 import java.util.Date;
-
 import ifba.elementos.IDocuments;
 
-public class CriadorDocumento implements AbstractFactory{
+public class CriaDocumentos implements AbstractFactory {
 
-	@Override
+    @Override
     public String geraDocumentacao(IDocuments iDocuments) {
         iDocuments.setTitulo("Padroes de projeto");
 		iDocuments.setEmpresa("Insituto Federal da Bahia");
@@ -16,4 +14,5 @@ public class CriadorDocumento implements AbstractFactory{
 		
 		return iDocuments.getOutput();
     }
+    
 }
