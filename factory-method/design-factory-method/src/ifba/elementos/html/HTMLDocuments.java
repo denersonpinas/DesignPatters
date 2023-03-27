@@ -1,63 +1,43 @@
 package ifba.elementos.html;
-import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import ifba.elementos.ICabecalho;
+import ifba.elementos.ICorpo;
 import ifba.elementos.IDocuments;
+import ifba.elementos.IRodape;
 
 public class HTMLDocuments implements IDocuments {
-    String titulo;
-	String empresa;
-    String texto;
-    Date data;
-
-    @Override
-    public String getTitulo() {
-		return titulo;
-	}
-
-    @Override
-    public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-    @Override
-    public String getEmpresa() {
-		return empresa;
-	}
-
-    @Override
-    public void setEmpresa(String empresa) {
-		this.empresa = empresa;
-	}
-
+    ICabecalho iCabecalho;
+    ICorpo iCorpo;
+    IRodape iRodape;
     
-    @Override
-    public String getTexto() {
-        return texto;
-	}
-    
-    @Override
-    public void setTexto(String texto) {
-		this.texto = texto;
-	}
-    
-    @Override
-    public Date getData() {
-		return data;
-	}
-    
-    @Override
-    public void setData(Date data) {
-		this.data = data;
-	}
-    
-    @Override
-    public String getOutput() {
-        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
-        return "<html><head><title>" + getTitulo() + "</title></head><body>\n" +
-				"<h1>" + getTitulo() + "</h1>\n" +
-				"<h2>" + getEmpresa() + "</h2>\n" + "<p>" + getTexto() + "</p>" + "<hr/>" + df.format(getData()) +
+    public HTMLDocuments(ICabecalho iCabecalho, ICorpo iCorpo, IRodape iRodape) {
+      this.iCabecalho = iCabecalho;
+      this.iCorpo = iCorpo;
+      this.iRodape = iRodape;
+    }
+
+    public String getiCabecalho() {
+      return "<html><head><title>" + iCabecalho.getTitulo() + "</title></head><body>\n" +
+      "<h1>" + iCabecalho.getTitulo() + "</h1>\n" +
+      "<h2>" + iCabecalho.getEmpresa() + "</h2>\n";
+    }
+
+    public String getiCorpo() {
+      return "<p>" + iCorpo.getTexto() + "</p>";
+    }
+
+    public String getiRodape() {
+      DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+		return "<hr/>" + df.format(iRodape.getData()) +
 				"</body></html>\n";
     }
+
+    @Override
+    public String getDocumento() {      
+      return getiCabecalho() + "\n" +
+        getiCorpo() + "\n" +
+        getiRodape();
+    }    
 }

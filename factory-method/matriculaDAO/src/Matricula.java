@@ -1,16 +1,13 @@
-public class Matricula {
-    private Integer codStudent;
-    private Integer codCourse;
+public class Matricula implements Registration {
+    MatriculaDAO matriculaDAO;
 
-    public Matricula(Integer codStudent, Integer codCourse) {
-        this.codCourse = codCourse;
-        this.codStudent = codStudent;
+    public Matricula(MatriculaDAO matriculaDAO) {
+        this.matriculaDAO = matriculaDAO;
     }
 
-    public Integer getCodCourse() {
-        return codCourse;
-    }
-    public Integer getCodStudent() {
-        return codStudent;
-    }
+    public String geraMatricula() {
+        return "Matricula criada com sucesso: \n" +
+        "Código do Curso: " + matriculaDAO.getCodCourse() + "\n" +
+        "Código do Aluno: " + matriculaDAO.getCodStudent();
+    }    
 }

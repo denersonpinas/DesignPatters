@@ -1,5 +1,11 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        MatriculaDAO matricula = new MatriculaConcret();
+        matricula.setCodCourse(15);
+        matricula.setCodStudent(7);
+
+        RegistrationFactory registrationFactory = new RegistrationConcret();
+        Registration registration = registrationFactory.createEnrollStudent(matricula);
+        System.out.println(registration.geraMatricula());
     }
 }
