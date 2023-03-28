@@ -7,4 +7,5 @@ public interface CalcularGanhos {
     void setTaxaJuros(double taxaJuros);
     double getSaldo();
     double getTaxaJuros();
+    double getGanhos();
 }

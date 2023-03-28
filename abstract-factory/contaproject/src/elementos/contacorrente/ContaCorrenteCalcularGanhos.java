@@ -10,7 +10,7 @@ public class ContaCorrenteCalcularGanhos implements CalcularGanhos  {
 
     @Override
     public String getOutput() {
-        return "Os ganhos da conta corrente são: " + ganhos;
+        return "Os ganhos da conta corrente são: " + getGanhos();
     }
 
     @Override
@@ -31,6 +31,11 @@ public class ContaCorrenteCalcularGanhos implements CalcularGanhos  {
     @Override
     public double getSaldo() {
         return saldo;
+    }
+
+    @Override
+    public double getGanhos() {
+        return ganhos;
     }
 
     @Override

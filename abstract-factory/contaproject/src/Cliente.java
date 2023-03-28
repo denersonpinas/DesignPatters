@@ -9,7 +9,7 @@ public class Cliente {
     CalcularGanhos calcularGanhos;
     RegistrarConta registrarConta;
 
-    public void criadorConta(ContaFabricaAbstrata contaFabricaAbstrata) {        
+    public Cliente(ContaFabricaAbstrata contaFabricaAbstrata) {        
         this.registrarConta = contaFabricaAbstrata.criarRegistrarConta();
         this.registrarConta.registrarConta(new Usuario("Denner", "123456", "Eunápolis", "7390000", "a@gmail.com", "123"));
 
@@ -20,6 +20,7 @@ public class Cliente {
         this.calcularGanhos = contaFabricaAbstrata.criarCalcularGanhos();
         this.calcularGanhos.setSaldo(1500);
         this.calcularGanhos.setTaxaJuros(5);
+        this.calcularGanhos.calcularGanhos();
     }
 
     public String geraConta() {

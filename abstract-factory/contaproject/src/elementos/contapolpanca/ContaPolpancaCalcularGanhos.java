@@ -37,4 +37,9 @@ public class ContaPolpancaCalcularGanhos implements CalcularGanhos {
     public double getTaxaJuros() {
         return taxaJuros;
     }
+
+    @Override
+    public double getGanhos() {
+        return ganhos;
+    }
 }
