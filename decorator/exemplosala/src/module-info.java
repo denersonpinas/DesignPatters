@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author cleberlira
+ *
+ */
+module decorator {
+}
