@@ -7,7 +7,7 @@ public class App {
 
 		for (int i = 0; i < limite; i++) {
 			meusProdutos[i] = new Produto("Produto teste " + i);
-		  }
+		}
 	
 		//InterfaceIterator meuIterator = new Iterator(meusProdutos);
 		InterfaceIterator meuIterator = new IteratorDesc(meusProdutos);
